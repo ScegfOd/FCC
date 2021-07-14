@@ -26,3 +26,10 @@ body footer{
 	text-align: center;
 	font-size: small;
 }
+
+img {
+	max-width: 50%;
+	align-self: center;
+	margin: 2em;
+	border: thick outset steelblue;
+}
