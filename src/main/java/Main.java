@@ -3,24 +3,25 @@ import java.sql.Timestamp;
 
 import models.Order;
 import models.User;
+import service.UserService;
+import service.UserServiceImpl;
 
 public class Main {
 	public static void main(String[] args) {
-		// set up some dummy users
-		User newCustomer = new User("customer@email.com", "customer", "New Customer", "password");
-		User newEmployee = new User("EMP-001", "employee", "New Employee", "password");
+
+		UserService uservice = new UserServiceImpl();
 		
-		// this is the constructor we would use when a new order is created
-		Order newOrder = new Order(newCustomer.getId(), "Chicken", new BigDecimal(9.51), new Timestamp(System.currentTimeMillis()));
+		System.out.println(uservice.getUser("admin22"));
+		System.out.println(uservice.getAll());
+		System.out.println(uservice.getAll("employee"));
 		
-		// this is the constructor we would use when retrieving an order from the database
-		Order pastOrder = new Order(1, "customer id", "complete", "more chicken", new BigDecimal(9.99), new Timestamp(System.currentTimeMillis()), 
-									new Timestamp(System.currentTimeMillis()), "employee id");
+		uservice.createUser("test", "test", "test", "test");
+		System.out.println(uservice.getUser("test"));
+		uservice.deleteUser("test");
+		System.out.println(uservice.getAll());
 		
-		
-		System.out.println(newCustomer);
-		System.out.println(newEmployee);
-		System.out.println(newOrder);
-		System.out.println(pastOrder);
+		System.out.println(uservice.customerLogin("jcombs@gmail.com", "password"));
+		System.out.println(uservice.employeeLogin("admin22", "password1"));
+		System.out.println(uservice.employeeLogin("empl13", "password1"));
 	}
 }
