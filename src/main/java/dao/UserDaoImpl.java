@@ -52,7 +52,6 @@ public class UserDaoImpl implements UserDao{
 		}
 		
 		return user;
-		
 	}
 	
 	// fetch all users

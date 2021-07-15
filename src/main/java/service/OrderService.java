@@ -11,7 +11,7 @@ public interface OrderService {
 	Order getOne(int id);
 	// fetch all orders
 	Map<Integer, Order> getAll();
-	// fetch all orders for a given customer
+	// fetch all orders for a particular customer
 	Map<Integer, Order> getAll(String customerId);
 	// fetch all pending orders
 	Map<Integer, Order> getPending();
@@ -20,15 +20,17 @@ public interface OrderService {
 	// fetch all completed orders
 	Map<Integer, Order> getCompleted();
 	// fetch all completed orders for a particular customer
-	Map<Integer, Order> getCompleted(Integer customerId);
-	// create a new order
-	void createOrer(String customerId, String items, BigDecimal total, Timestamp timePlaced);
+	Map<Integer, Order> getCompleted(String customerId);
+	// create a new order (returns id of new order)
+	Integer createOrder(String customerId, String items, BigDecimal total, Timestamp timePlaced);
 	// update an existing order
-	void updateOrder(int id, String customerId, String status, String items, BigDecimal total, Timestamp timePlaced, Timestamp timeCompleted, String employeeId, String notes);
+	String updateOrder(int id, String customerId, String status, String items, BigDecimal total, Timestamp timePlaced, Timestamp timeCompleted, String employeeId, String notes);
 	// change the status of an order
-	void setOrderStatus(int id, String employeeId, String status);
+	String setOrderStatus(int id, String employeeId, String status);
 	// cancel an order
-	void cancelOrder(int id, String notes);
+	String cancelOrder(int id, String employeeId, String notes);
 	// delete an order from the database
-	void deleteOrer(int id);
+	String deleteOrder(int id);
+	// fetch the key order statistics
+	Map<String, String> getStats();
 }

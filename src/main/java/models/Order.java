@@ -33,7 +33,7 @@ public class Order {
 	public Order(String customerId, String items, BigDecimal total, Timestamp timePlaced) {
 		this.id = null;
 		this.customerId = customerId;
-		this.status = "placed";
+		this.status = "order placed";
 		this.items = items;
 		this.total = total.setScale(2, RoundingMode.HALF_UP);
 		this.timePlaced = timePlaced;

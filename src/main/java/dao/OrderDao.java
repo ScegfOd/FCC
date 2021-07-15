@@ -5,14 +5,28 @@ import java.util.Map;
 import models.Order;
 
 public interface OrderDao {
-	Map<Integer, Order> getAll();
-	Map<Integer, Order> getAll(Integer customerId);
+	// fetch a particular order
 	Order getOne(Integer id);
+	// fetch all orders
+	Map<Integer, Order> getAll();
+	// fetch all orders for a particular customer
+	Map<Integer, Order> getAll(String customerId);
+	// fetch all pending orders
 	Map<Integer, Order> getPending();
+	// fetch all pending orders for a particular customer
 	Map<Integer, Order> getPending(String customerId);
+	// fetch all completed orders
 	Map<Integer, Order> getCompleted();
-	Map<Integer, Order> getCompleted(Integer customerId);
+	// fetch all completed orders for a particular customer
+	Map<Integer, Order> getCompleted(String customerId);
+	// create a new order
 	void createOrer(Order order);
+	// update an existing order
 	void updateOrder(Integer id, Order newOrder);
+	// delete an order from the database
 	void deleteOrer(Integer id);
+	// this is a utility method used to get the id of a newly created order
+	Integer getNewOrderId(String customerId);
+	// fetch the key order statistics
+	Map <String, String> getStats();
 }
