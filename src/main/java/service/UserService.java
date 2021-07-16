@@ -16,7 +16,7 @@ public interface UserService {
 	// login for the employee portal (should work for both employees and managers)
 	User employeeLogin(String id, String password); 
 	// create a new user (should work for all roles)
-	void createUser(String id, String role, String name, String password);
+	String createUser(User user);
 	// delete a user from the database
-	void deleteUser(String id);
+	String deleteUser(String id);
 }

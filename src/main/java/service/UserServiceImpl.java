@@ -40,12 +40,28 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	// create a new user (should work for all roles)
-	public void createUser(String id, String role, String name, String password) {
-		this.userDao.createUser(new User(id, role, name, password));
+	public String createUser(User user) {
+		// check to see if the user id already exists in the database
+		if(this.userDao.getUser(user.getId()) != null) {
+			return "A user already exists with that ID";
+		}
+		
+		this.userDao.createUser(user);
+		
+		// return success message
+		return "User created successfully";
 	}
 	
 	// delete a user from the database
-	public void deleteUser(String id) {
+	public String deleteUser(String id) {
+		// check to see if the user id exists in the database
+		if(this.userDao.getUser(id) == null) {
+			return "No user exists with that ID";
+		}
+		
 		this.userDao.deleteUser(id);
+		
+		// return success message
+		return "User deleted successfully";
 	}
 }

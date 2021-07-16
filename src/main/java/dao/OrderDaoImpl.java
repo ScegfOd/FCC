@@ -15,7 +15,7 @@ import models.Order;
 public class OrderDaoImpl implements OrderDao{
 
 	// fetch a particular order
-	public Order getOne(Integer id) {
+	public Order getOrder(Integer id) {
 		// set up the resources we'll need
 		Connection conn = null;
 		Statement stmt = null;
@@ -316,16 +316,14 @@ public class OrderDaoImpl implements OrderDao{
 		try {
 			conn = ConnectionUtil.getConnection();
 			
-			final String query = "INSERT INTO orders VALUES(default, ?, ?, ?, ?, ?, ?, ?, ?)";
+			final String query = "INSERT INTO orders VALUES(default, ?, 'order placed', ?, ?, now(), ?, ?, ?)";
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1, order.getCustomerId());
-			stmt.setString(2, order.getStatus());
-			stmt.setString(3, order.getItems());
-			stmt.setBigDecimal(4, order.getTotal());
-			stmt.setTimestamp(5, order.getTimePlaced());
-			stmt.setTimestamp(6, order.getTimeCompleted());
-			stmt.setString(7, order.getEmployeeId());
-			stmt.setString(8, order.getNotes());
+			stmt.setString(2, order.getItems());
+			stmt.setBigDecimal(3, order.getTotal());
+			stmt.setTimestamp(4, order.getTimeCompleted());
+			stmt.setString(5, order.getEmployeeId());
+			stmt.setString(6, order.getNotes());
 			
 			stmt.execute();
 

@@ -17,8 +17,8 @@ public class OrderServiceImpl implements OrderService{
 	}
 	
 	// fetch a particular order
-	public Order getOne(int id) {
-		return this.orderDao.getOne(id);
+	public Order getOrder(int id) {
+		return this.orderDao.getOrder(id);
 	}
 
 	// fetch all orders
@@ -52,23 +52,21 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	// create a new customer (returns id of new order)
-	public Integer createOrder(String customerId, String items, BigDecimal total, Timestamp timePlaced) {
-		// create the new order
-		Order order = new Order(customerId, items, total, timePlaced);
+	public Integer createOrder(Order order) {
 		
 		// add it to the database
 		this.orderDao.createOrer(order);
 		
 		// return the id of the new order we created
-		return this.orderDao.getNewOrderId(customerId);
+		return this.orderDao.getNewOrderId(order.getCustomerId());
 	}
 
 	// update an existing order
 	public String updateOrder(int id, String customerId, String status, String items, BigDecimal total,
 							  Timestamp timePlaced, Timestamp timeCompleted, String employeeId, String notes) {
 		// check to see if the order id exists in the database
-		if(this.orderDao.getOne(id) == null) {
-			return "That order ID does not exist";
+		if(this.orderDao.getOrder(id) == null) {
+			return "No order exists with that ID";
 		}
 		
 		// create a new order with the updated information
@@ -85,11 +83,11 @@ public class OrderServiceImpl implements OrderService{
 	// update the status of an order
 	public String setOrderStatus(int id, String employeeId, String status) {
 		// get the desired order from the database
-		Order order = this.getOne(id);
+		Order order = this.getOrder(id);
 		
 		// check to see if the order id exists in the database
 		if(order == null) {
-			return "That order ID does not exist";
+			return "No order exists with that ID";
 		}
 		
 		// change the order status
@@ -114,11 +112,11 @@ public class OrderServiceImpl implements OrderService{
 	// cancel an order
 	public String cancelOrder(int id, String employeeId, String notes) {
 		// get the desired order from the database
-		Order order = this.getOne(id);
+		Order order = this.getOrder(id);
 		
 		// check to see if the order id exists in the database
 		if(order == null) {
-			return "That order ID does not exist";
+			return "No order exists with that ID";
 		}
 		
 		// change the order status to cancelled
@@ -140,8 +138,8 @@ public class OrderServiceImpl implements OrderService{
 	// delete an order from the database
 	public String deleteOrder(int id) {
 		// check to see if the order id exists in the database
-		if(this.orderDao.getOne(id) == null) {
-			return "That order ID does not exist";
+		if(this.orderDao.getOrder(id) == null) {
+			return "No order exists with that ID";
 		}
 		
 		// delete the order if it exists in the database

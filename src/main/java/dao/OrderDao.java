@@ -6,7 +6,7 @@ import models.Order;
 
 public interface OrderDao {
 	// fetch a particular order
-	Order getOne(Integer id);
+	Order getOrder(Integer id);
 	// fetch all orders
 	Map<Integer, Order> getAll();
 	// fetch all orders for a particular customer

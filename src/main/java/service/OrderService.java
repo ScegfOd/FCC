@@ -8,7 +8,7 @@ import models.Order;
 
 public interface OrderService {
 	// fetch a particular order
-	Order getOne(int id);
+	Order getOrder(int id);
 	// fetch all orders
 	Map<Integer, Order> getAll();
 	// fetch all orders for a particular customer
@@ -22,7 +22,7 @@ public interface OrderService {
 	// fetch all completed orders for a particular customer
 	Map<Integer, Order> getCompleted(String customerId);
 	// create a new order (returns id of new order)
-	Integer createOrder(String customerId, String items, BigDecimal total, Timestamp timePlaced);
+	Integer createOrder(Order order);
 	// update an existing order
 	String updateOrder(int id, String customerId, String status, String items, BigDecimal total, Timestamp timePlaced, Timestamp timeCompleted, String employeeId, String notes);
 	// change the status of an order
