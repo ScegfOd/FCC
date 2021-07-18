@@ -13,10 +13,11 @@ public class Order {
 	private Timestamp timePlaced;
 	private Timestamp timeCompleted;
 	private String employeeId;
+	private String notes;
 	
 	// Constructor with all values included as args
 	public Order(int id, String customerId, String status, String items, BigDecimal total, Timestamp timePlaced,
-			Timestamp timeCompleted, String employeeId) {
+			Timestamp timeCompleted, String employeeId, String notes) {
 		this.id = id;
 		this.customerId = customerId;
 		this.status = status;
@@ -25,18 +26,20 @@ public class Order {
 		this.timePlaced = timePlaced;
 		this.timeCompleted = timeCompleted;
 		this.employeeId = employeeId;
+		this.notes = notes;
 	}
 	
 	// Constructor with the values that we'll use when a user places a new order
 	public Order(String customerId, String items, BigDecimal total, Timestamp timePlaced) {
 		this.id = null;
 		this.customerId = customerId;
-		this.status = "placed";
+		this.status = "order placed";
 		this.items = items;
 		this.total = total.setScale(2, RoundingMode.HALF_UP);
 		this.timePlaced = timePlaced;
 		this.timeCompleted = null;
 		this.employeeId = null;
+		this.notes = null;
 	}
 	
 	// noargs Constructor
@@ -48,7 +51,7 @@ public class Order {
 	public String toString() {
 		return "Order [id=" + id + ", customerId=" + customerId + ", status=" + status + ", items=" + items + ", total=$"
 				+ total + ", timePlaced=" + timePlaced + ", timeCompleted=" + timeCompleted + ", employeeId="
-				+ employeeId + "]";
+				+ employeeId + ", notes=" + notes + "]";
 	}
 	
 	public int getId() {
@@ -113,6 +116,14 @@ public class Order {
 
 	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
+	}
+	
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 
 }

@@ -1,3 +1,3 @@
-# Chicken Fly company presents:
-## a food ordering app probably!
+# Chicken Fly Company presents:
+## a food ordering web app probably!
 ### to be continued...
