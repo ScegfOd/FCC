@@ -41,9 +41,16 @@ public class UserController {
 		User result = userService.customerLogin(id, password);
 		
 		if(result == null) {
+			// return an error message
 			context.result("Invalid credentials");
 		} else {
-			// need to add a session variable here
+			// set the session variable for current user
+			context.sessionAttribute("currentUser", result.getId());
+			
+			// print it in the console to verify
+			System.out.println((String) context.sessionAttribute("currentUser"));
+			
+			// return the user information
 			context.json(result);
 		}
 	}
@@ -56,16 +63,30 @@ public class UserController {
 		User result = userService.employeeLogin(id, password);
 		
 		if(result == null) {
+			// return an error message
 			context.result("Invalid credentials");
 		} else {
-//			// need to add a session variable here
+			// set the session variable for current user
+			context.sessionAttribute("currentUser", result.getId());
+			
+			// print it in the console to verify
+			System.out.println((String) context.sessionAttribute("currentUser"));
+			
+			// return the user information
 			context.json(result);
 		}
 	}
 	
 	// logout (should work for customers and employees)
 	public static void logout(Context context) {
-		// need to set the session variable to null here
+		// reset the session variable for current user to null
+		context.sessionAttribute("currentUser", null);
+		
+		// print it in the console to verify
+		System.out.println((String) context.sessionAttribute("currentUser"));
+		
+		// return a message 
+		context.result("Logged out successfully");
 	}
 	
 	// create a new user
