@@ -8,6 +8,6 @@ public class Main {
 		Javalin app = Javalin.create().start(9000);
 		
 		
-		FrontController fc = new FrontController(app);
+		new FrontController(app);
 	}
 }
