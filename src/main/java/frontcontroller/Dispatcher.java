@@ -3,6 +3,7 @@ package frontcontroller;
 import controllers.UserController;
 import controllers.OrderController;
 import io.javalin.Javalin;
+import io.javalin.http.Context;
 
 public class Dispatcher {
 	public Dispatcher(Javalin app) {
@@ -72,5 +73,11 @@ public class Dispatcher {
 		
 		// fetch the key order statistics /orders/stats GET
 		app.get("/orders/stats", OrderController::getStats);
+		
+		
+		// Endpoint that returns all session variables /session GET
+		app.get("/session", (Context context) -> {
+			context.json(context.sessionAttributeMap());
+		});
 	}
 }
