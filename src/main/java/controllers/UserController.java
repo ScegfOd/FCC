@@ -44,11 +44,12 @@ public class UserController {
 			// return an error message
 			context.result("Invalid credentials");
 		} else {
-			// set the session variable for current user
+			// set the session variables for current user and user role
 			context.sessionAttribute("currentUser", result.getId());
+			context.sessionAttribute("userRole", result.getRole());
 			
 			// print it in the console to verify
-			System.out.println((String) context.sessionAttribute("currentUser"));
+			System.out.println(context.sessionAttributeMap());
 			
 			// return the user information
 			context.json(result);
@@ -66,11 +67,12 @@ public class UserController {
 			// return an error message
 			context.result("Invalid credentials");
 		} else {
-			// set the session variable for current user
+			// set the session variables for current user and user role
 			context.sessionAttribute("currentUser", result.getId());
+			context.sessionAttribute("userRole", result.getRole());
 			
 			// print it in the console to verify
-			System.out.println((String) context.sessionAttribute("currentUser"));
+			System.out.println(context.sessionAttributeMap());
 			
 			// return the user information
 			context.json(result);
@@ -79,11 +81,12 @@ public class UserController {
 	
 	// logout (should work for customers and employees)
 	public static void logout(Context context) {
-		// reset the session variable for current user to null
+		// reset the session variables to null
 		context.sessionAttribute("currentUser", null);
+		context.sessionAttribute("userRole", null);
 		
 		// print it in the console to verify
-		System.out.println((String) context.sessionAttribute("currentUser"));
+		System.out.println(context.sessionAttributeMap());
 		
 		// return a message 
 		context.result("Logged out successfully");
