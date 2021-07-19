@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Unit_Tests">
+	<test name="User_Dao">
+	</test>
+	<test name="User_Service">
+	</test>
+	<test name="Order_Dao">
+	</test>
+	<test name="Order_Service">
+	</test>
+</suite>
