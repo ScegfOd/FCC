@@ -20,6 +20,8 @@ body {
 main {
 	display: flex;
 	flex-direction: column;
+	max-width: 50em;
+	align-self: center;
 }
 
 body footer{
@@ -28,7 +30,6 @@ body footer{
 }
 
 img {
-	max-width: 50%;
 	align-self: center;
 	margin: 2em;
 	border: thick outset steelblue;
