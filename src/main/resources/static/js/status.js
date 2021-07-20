@@ -26,13 +26,18 @@ function get_order_status(){
 				img.src = "images/status1.jpg"
 			}
 		}else{
-		document.getElementById("statusimg").src = "images/status.jpg"
-			document.getElementById("idinput").style.border = "1em solid red"
-			document.getElementById("msg").textContent = "invalid order id"
+			document.getElementById("statusimg").src = "images/status.jpg"
+			input = document.getElementById("idinput")
+			input.style.border = "1em solid red"
+			msg = document.getElementById("msg")
+			msg.textContent = "invalid order id"
+			msg.style.border = "1em solid red"
+			msg.style.textAlign = "center"
 			setTimeout(()=>{
-				document.getElementById("idinput").style.border = "0em solid red"
-				document.getElementById("msg").textContent = ""
-				document.getElementById("idinput").value = ""
+				input.style.border = "0em solid red"
+				input.value = ""
+				msg.style.border = "0em solid red"
+				msg.textContent = ""
 			}, 3000)
 		}
 	})
