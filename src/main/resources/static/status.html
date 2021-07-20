@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="../main.css" />
+	<link rel="stylesheet" href="css/main.css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>Chicken Fly: Order status</title>
 </head>
@@ -11,6 +11,7 @@
 		<header><h1>Order Status</h1></header>
 		<label name="idinput">order ID:</label>
 		<input name="idinput" id="idinput" type="number" placeholder="12345" min="1"></input>
+		<p id="msg"></p>
 		<button onclick="get_order_status()">Get Status</button>
 		<button onclick="reset_img()">Clear</button>
 		<img id="statusimg" src="images/status.jpg"/>
