@@ -370,7 +370,7 @@ public class OrderDaoImpl implements OrderDao{
 	}
 
 	// delete an order from the database
-	public void deleteOrer(Integer id) {
+	public void deleteOrder(Integer id) {
 		// set up the resources we'll need
 		Connection conn = null;
 		PreparedStatement stmt = null;

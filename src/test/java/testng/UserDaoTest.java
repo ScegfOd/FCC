@@ -9,7 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import dao.UserDaoImpl;
@@ -25,8 +26,8 @@ public class UserDaoTest {
 	@InjectMocks
 	public UserDaoImpl userDaoImpl;
 	
-	@BeforeClass
-	public void beforeClassSetup() throws SQLException {
+	@BeforeSuite
+	public void beforeTestSetup() throws SQLException {
 		// initialize our mocks
 		MockitoAnnotations.openMocks(this);
 		
@@ -35,6 +36,13 @@ public class UserDaoTest {
 		
 		// return our mock connection whenever a method tries to access the database
 		connectionUtil.when(() -> ConnectionUtil.getConnection()).thenReturn(mockConnection);
+	}
+	
+	@AfterSuite
+	public void afterTestTeardown() {
+		// close out mocks
+		connectionUtil.close();
+		resourceClosers.close();
 	}
 	
 	@Test(groups = "before-new-user")
@@ -156,7 +164,7 @@ public class UserDaoTest {
 		assert userDaoImpl.customerLogin("testEmployee", "wrong password") == null;
 	}
 	
-	@Test(groups ="new-user", dependsOnGroups = "before-new-user")
+	@Test(dependsOnGroups = "before-new-user")
 	public void testCreateUser() {
 		// set up a new user
 		User testUser = new User("testUser", "manager", "Test User", "password");
@@ -177,7 +185,7 @@ public class UserDaoTest {
 		
 	}
 	
-	@Test(dependsOnGroups = "new-user")
+	@Test(dependsOnMethods = "testCreateUser")
 	public void testDeleteUser() {
 		// verify that the user currently exists
 		assert userDaoImpl.getUser("testUser").getClass() == User.class;

@@ -143,7 +143,7 @@ public class OrderServiceImpl implements OrderService{
 		}
 		
 		// delete the order if it exists in the database
-		this.orderDao.deleteOrer(id);
+		this.orderDao.deleteOrder(id);
 		
 		// return success message
 		return "Order deleted successfully";

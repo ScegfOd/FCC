@@ -24,7 +24,7 @@ public interface OrderDao {
 	// update an existing order
 	void updateOrder(Integer id, Order newOrder);
 	// delete an order from the database
-	void deleteOrer(Integer id);
+	void deleteOrder(Integer id);
 	// this is a utility method used to get the id of a newly created order
 	Integer getNewOrderId(String customerId);
 	// fetch the key order statistics
