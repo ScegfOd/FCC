@@ -41,8 +41,8 @@ public class UserController {
 		User result = userService.customerLogin(id, password);
 		
 		if(result == null) {
-			// return an error message
-			context.result("Invalid credentials");
+			// redirect with a 400 status code
+			context.redirect("/loginpage", 400);
 		} else {
 			// set the session variables for current user and user role
 			context.sessionAttribute("currentUser", result.getId());
@@ -51,8 +51,8 @@ public class UserController {
 			// print it in the console to verify
 			System.out.println(context.sessionAttributeMap());
 			
-			// return the user information
-			context.json(result);
+			// redirect with a 200 status code
+			context.redirect("/homepage", 200);
 		}
 	}
 	
@@ -64,8 +64,8 @@ public class UserController {
 		User result = userService.employeeLogin(id, password);
 		
 		if(result == null) {
-			// return an error message
-			context.result("Invalid credentials");
+			// redirect with a 400 status code
+			context.redirect("/loginpage", 400);
 		} else {
 			// set the session variables for current user and user role
 			context.sessionAttribute("currentUser", result.getId());
@@ -74,8 +74,8 @@ public class UserController {
 			// print it in the console to verify
 			System.out.println(context.sessionAttributeMap());
 			
-			// return the user information
-			context.json(result);
+			// redirect with a 200 status code
+			context.redirect("/homepage", 200);
 		}
 	}
 	
@@ -88,8 +88,8 @@ public class UserController {
 		// print it in the console to verify
 		System.out.println(context.sessionAttributeMap());
 		
-		// return a message 
-		context.result("Logged out successfully");
+		// redirect with a 200 status code
+		context.redirect("/loginpage", 200);
 	}
 	
 	// create a new user
