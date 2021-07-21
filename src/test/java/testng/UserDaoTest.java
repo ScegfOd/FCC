@@ -9,8 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import dao.UserDaoImpl;
@@ -26,7 +26,7 @@ public class UserDaoTest {
 	@InjectMocks
 	public UserDaoImpl userDaoImpl;
 	
-	@BeforeSuite
+	@BeforeTest
 	public void beforeTestSetup() throws SQLException {
 		// initialize our mocks
 		MockitoAnnotations.openMocks(this);
@@ -38,7 +38,7 @@ public class UserDaoTest {
 		connectionUtil.when(() -> ConnectionUtil.getConnection()).thenReturn(mockConnection);
 	}
 	
-	@AfterSuite
+	@AfterTest
 	public void afterTestTeardown() {
 		// close out mocks
 		connectionUtil.close();
