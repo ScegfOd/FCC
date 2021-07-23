@@ -8,6 +8,7 @@ create table users(
 );
 
 -- managers
+insert into users values('admin13', 'employee', 'Manny Hinn', 'password1');
 insert into users values('admin22', 'manager', 'Marcus Key', 'password1');
 insert into users values('admin87', 'manager', 'Lana Lewis', 'password1');
 
