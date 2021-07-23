@@ -5,10 +5,8 @@ async function invalid() {
     let login_status = await response.json()
     if (login_status == "invalid"){
         element.innerHTML += "Incorrect Login. Try Again."
-    } else if (login_status == "not manager") {
-		element.innerHTML += "Must be logged in as a manager<br>to access that page."
-	} else if (login_status == "not employee") {
-		element.innerHTML += "Must be logged in as an employee<br>to access that page."
+    } else if (login_status == "not manager" || login_status == "not employee") {
+		element.innerHTML += "Not Authorized. Login For Access."
 	}
 }
 

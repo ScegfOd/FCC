@@ -50,7 +50,9 @@ function Cancel(obj) {
 
 var tableData
 var state
+
 get_orders().then((value) => { main(value) });
+
 function main(value) {
 	tableData = value
 	console.log(typeof value + " value")
