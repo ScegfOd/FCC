@@ -20,11 +20,11 @@ public interface OrderDao {
 	// fetch all completed orders for a particular customer
 	Map<Integer, Order> getCompleted(String customerId);
 	// create a new order
-	void createOrer(Order order);
+	void createOrder(Order order);
 	// update an existing order
 	void updateOrder(Integer id, Order newOrder);
 	// delete an order from the database
-	void deleteOrer(Integer id);
+	void deleteOrder(Integer id);
 	// this is a utility method used to get the id of a newly created order
 	Integer getNewOrderId(String customerId);
 	// fetch the key order statistics

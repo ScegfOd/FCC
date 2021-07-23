@@ -55,7 +55,7 @@ public class OrderServiceImpl implements OrderService{
 	public Integer createOrder(Order order) {
 		
 		// add it to the database
-		this.orderDao.createOrer(order);
+		this.orderDao.createOrder(order);
 		
 		// return the id of the new order we created
 		return this.orderDao.getNewOrderId(order.getCustomerId());
@@ -143,7 +143,7 @@ public class OrderServiceImpl implements OrderService{
 		}
 		
 		// delete the order if it exists in the database
-		this.orderDao.deleteOrer(id);
+		this.orderDao.deleteOrder(id);
 		
 		// return success message
 		return "Order deleted successfully";
