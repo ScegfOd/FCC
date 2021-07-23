@@ -30,12 +30,31 @@ public class FrontController {
 		// check for invalid login
 		app.get("/invalid", ctx -> {
 			if (ctx.sessionAttribute("currentUser") != null) {
+				String login_status = ctx.sessionAttribute("currentUser");
 				ctx.sessionAttribute("currentUser", null);
-				ctx.json("invalid");
+				ctx.json(login_status);
 			} else {
 				ctx.json("reset");
 			}
 		});
 		this.dispatcher = new Dispatcher(app);
+		
+		// login verification for manager page
+		app.before("/fccm.html", ctx -> {
+			if(ctx.sessionAttribute("userRole") == null || !ctx.sessionAttribute("userRole").equals("manager")) {
+				// redirect the user to the login page if they're not logged in as a manager
+				ctx.sessionAttribute("currentUser", "not manager");
+				ctx.redirect("http://localhost:9000/fcc.html");
+			}
+		});
+		
+		// login verification for employee page
+		app.before("/fcce.html", ctx -> {
+			if(ctx.sessionAttribute("userRole") == null || !ctx.sessionAttribute("userRole").equals("employee")) {
+				// redirect the user to the login page if they're not logged in as a manager
+				ctx.sessionAttribute("currentUser", "not employee");
+				ctx.redirect("http://localhost:9000/fcc.html");
+			}
+		});
 	}
 }

@@ -1,3 +1,4 @@
+drop table orders;
 drop table users;
 create table users(
     uid varchar primary key unique not null,
@@ -38,7 +39,7 @@ insert into users values('mtwain99@yahoo.com', 'customer', 'Martin Twain', 'pass
 -- guest
 insert into users values('guest', 'guest', 'Guest', 'irrelevant');
 
-drop table orders;
+
 create table orders(
     oid bigserial primary key,
     uid varchar references users(uid),
