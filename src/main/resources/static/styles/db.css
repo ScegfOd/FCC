@@ -115,11 +115,32 @@ input[type=button], input[type=submit], input[type=reset] {
   height:39px;
 }
 
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+button {
+  background-color: #ff8c00;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: white;
+  font-size: 13px;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, button:hover  {
   background-color: black;
 }
 
-input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active, button:active {
   -moz-transform: scale(0.95);
   -webkit-transform: scale(0.95);
   -o-transform: scale(0.95);
