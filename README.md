@@ -3,7 +3,7 @@
 # Summary:
 The official "Chicken Fly" ordering website, for the best fried chicken you ever had, available 24/7! Customers can place orders and check order status. Employees can change order status. Managers can cancel/refund orders and see revenue information.
 
-# Group: Manny Hinn, Marcus Kee, Jonathan Combs, Christian Hall
+# Group: Marcus Kee, Manny Hinn, Jonathan Combs, Christian Hall
 
 # User Stories
 As a customer, I place an order.
