@@ -10,6 +10,7 @@
 	<test name="Service Tests">
 		<classes>
 			<class name="testng.UserServiceTest"></class>
+			<class name="testng.OrderServiceTest"></class>
 		</classes>
 	</test>
 </suite>

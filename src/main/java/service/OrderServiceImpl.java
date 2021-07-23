@@ -55,7 +55,7 @@ public class OrderServiceImpl implements OrderService{
 	public Integer createOrder(Order order) {
 		
 		// add it to the database
-		this.orderDao.createOrer(order);
+		this.orderDao.createOrder(order);
 		
 		// return the id of the new order we created
 		return this.orderDao.getNewOrderId(order.getCustomerId());

@@ -261,7 +261,7 @@ public class OrderDaoTest {
 		int orderId = orderDaoImpl.getNewOrderId("testCustomer");
 		
 		// add the order to the test database
-		orderDaoImpl.createOrer(testOrder);
+		orderDaoImpl.createOrder(testOrder);
 		
 		// get the id of the new order
 		int newOrderId = orderDaoImpl.getNewOrderId("testCustomer");

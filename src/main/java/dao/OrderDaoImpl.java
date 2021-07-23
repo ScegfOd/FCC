@@ -308,7 +308,7 @@ public class OrderDaoImpl implements OrderDao{
 	}
 
 	// create a new order
-	public void createOrer(Order order) {
+	public void createOrder(Order order) {
 		// set up the resources we'll need
 		Connection conn = null;
 		PreparedStatement stmt = null;
