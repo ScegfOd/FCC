@@ -6,12 +6,12 @@ The official "Fly Chicken" ordering website, for the best fried chicken you ever
 # Group: Manny Hinn, Marcus Kee, Jonathan Combs, Christian Hall
 
 # User Stories
-As a customer, I place an order.
-As a customer, I can see my order status.
-As an employee, I can update status on all pending orders.
-As a manager, I can see all orders.
-As a manager, I can refund/cancel orders.
-As a manager, I can see revenue information.
+- As a customer, I place an order.
+- As a customer, I can see my order status.
+- As an employee, I can update status on all pending orders.
+- As a manager, I can see all orders.
+- As a manager, I can refund/cancel orders.
+- As a manager, I can see revenue information.
 
 # Technologies Used
 - AWS RDS
