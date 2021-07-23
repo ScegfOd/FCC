@@ -21,5 +21,6 @@ As a manager, I can see revenue information.
 - Java
 - Javalin
 - Javascript
+- Mockito
 - PostgreSQL
 - Selenium
