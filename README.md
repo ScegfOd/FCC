@@ -1,17 +1,25 @@
-Group:
-Chicken Fly (Christian Hall, Jonathan Combs, Manny Hinn, Marcus Kee)
- 
-Project name:
-치킨 프라이
-Chicken Fly
- 
-Summary:
-The official Chicken Fly ordering app, for the best fried chicken you ever had, available 24/7! Customers can sign up, order and see past orders. Employees can change order status. Managers can refund orders and see statistics about past orders.
- 
-User stories:
+# Project 2: Fly Chicken Ordering Website and Food Ordering System
+
+# Summary:
+The official "Chicken Fly" ordering website, for the best fried chicken you ever had, available 24/7! Customers can place orders and check order status Employees can change order status. Managers can cancel/refund orders and see revenue information.
+
+# Group: Manny Hinn, Marcus Kee, Jonathan Combs, Christian Hall
+
+# User Stories
 As a customer, I place an order.
 As a customer, I can see my order status.
-As an employee, I can mark pending orders ready for pick-up and/or completed.
-As an manager, I can see all orders.
+As an employee, I can update status on all pending orders.
+As a manager, I can see all orders.
 As a manager, I can refund/cancel orders.
-As a manager, I can see statistics on orders.
+As a manager, I can see revenue information.
+
+# Technologies Used
+- AWS RDS
+- CSS
+- Gherkin
+- HTML
+- Java
+- Javalin
+- Javascript
+- PostgreSQL
+- Selenium

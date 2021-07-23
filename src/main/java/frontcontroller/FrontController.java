@@ -1,35 +1,41 @@
 package frontcontroller;
 
+import controllers.UserController;
 import io.javalin.Javalin;
-import io.javalin.http.Context;
 
 public class FrontController {
 	Javalin app;
 	Dispatcher dispatcher;
-	
+
 	public FrontController(Javalin app) {
 		this.app = app;
+
+		// login for the employee/manager portal
+		app.post("/logins", ctx -> {
+			if (UserController.employeeLogin(ctx).equals("employee")) {
+				ctx.redirect("http://localhost:9000/fcce.html");
+			} else if (UserController.employeeLogin(ctx).equals("manager")) {
+				ctx.redirect("http://localhost:9000/fccm.html");
+			} else {
+				ctx.redirect("http://localhost:9000/fcc.html");
+			}
+		});
 		
-		/*
-		 * All of your middleware routes would go here
-		 * 
-		 * - the :: syntax tells the compiler that the 
-		 * 	checkAllRequest method will be the implementation for the functional interface method
-		 */
+		// log off for the employee/manager portal
+		app.post("/logoff", ctx -> {
+			UserController.logout(ctx);
+			ctx.redirect("http://localhost:9000/fcc.html");
+		});
 		
-		this.app.before("/api/*", FrontController::checkAllRequests);
-		/*
-		 * 
-		 * this is equivalent to the syntax above
-		 * this.app.before("/api/*", context -> { //do context stuff here });
-		 */
-		
-		
+		// check for invalid login
+		app.get("/invalid", ctx -> {
+			if (ctx.sessionAttribute("currentUser") != null) {
+				ctx.sessionAttribute("currentUser", null);
+				ctx.json("invalid");
+			} else {
+				ctx.json("reset");
+			}
+		});
 		this.dispatcher = new Dispatcher(app);
-	}
-	
-	
-	public static void checkAllRequests(Context context) {
-		System.out.println("Middleware has been hit");
 	}
 }
