@@ -17,14 +17,15 @@ async function get_orders() {
 		var rowCount = table.rows.length
 		var row = table.insertRow(rowCount)
 		row.insertCell(0).innerHTML = evp[key].id
-		row.insertCell(1).innerHTML = evp[key].items
-		row.insertCell(2).innerHTML = '$' + evp[key].total.toFixed(2);
-		row.insertCell(3).innerHTML = evp[key].status
+		row.insertCell(1).innerHTML = new Date(evp[key].timePlaced).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })
+		row.insertCell(2).innerHTML = evp[key].items
+		row.insertCell(3).innerHTML = '$' + evp[key].total.toFixed(2);
+		row.insertCell(4).innerHTML = evp[key].status
 		if (evp[key].status == 'order placed') {
-			row.insertCell(4).innerHTML = '<input type="button" value = "ready" id="ready' + `${rowCount}` + '" onClick="Javacsript:Ready(this)">'
+			row.insertCell(5).innerHTML = '<input type="button" value = "ready" id="ready' + `${rowCount}` + '" onClick="Javacsript:Ready(this)">'
 		}
 		else {
-			row.insertCell(4).innerHTML = '<input type="button" value = "complete" id="ready' + `${rowCount}` + '" onClick="Javacsript:Complete(this)">'
+			row.insertCell(5).innerHTML = '<input type="button" value = "complete" id="ready' + `${rowCount}` + '" onClick="Javacsript:Complete(this)">'
 		}
 	}
 }
