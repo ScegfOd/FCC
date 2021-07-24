@@ -11,6 +11,7 @@ async function get_orders() {
 		row.insertCell(2).innerHTML = "-"
 		row.insertCell(3).innerHTML = "-"
 		row.insertCell(4).innerHTML = "-"
+		row.insertCell(5).innerHTML = "-"
 	}
 	for (let key in evp) {
 		let table = document.getElementById("evpTable")
