@@ -14,6 +14,7 @@ The official "Chicken Fly" ordering website, for the best fried chicken you ever
 - Agile-Scrum
 - AWS RDS
 - CSS
+- Cucumber
 - DevOps
 - Gherkin
 - HTML
