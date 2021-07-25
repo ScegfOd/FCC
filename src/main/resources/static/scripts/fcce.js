@@ -17,7 +17,7 @@ async function get_orders() {
 		let table = document.getElementById("evpTable")
 		var rowCount = table.rows.length
 		var row = table.insertRow(rowCount)
-		row.insertCell(0).innerHTML = evp[key].id
+		row.insertCell(0).innerHTML = evp[key].id.toString().padStart(4, "0"),
 		row.insertCell(1).innerHTML = new Date(evp[key].timePlaced).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })
 		row.insertCell(2).innerHTML = evp[key].items
 		row.insertCell(3).innerHTML = '$' + evp[key].total.toFixed(2);
