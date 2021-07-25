@@ -1,7 +1,7 @@
 # Project 2: Chicken Fly Ordering Website and Food Ordering System
 # Group: Manny Hinn, Marcus Kee, Jonathan Combs, Christian Hall
 
-# Summary:
+# Summary
 The official "Chicken Fly" ordering website, for the best fried chicken you ever had, available 24/7! Customers can place orders and check order status. Employees can update order status. Managers can cancel/refund orders and see revenue information.
 
 # User Stories
