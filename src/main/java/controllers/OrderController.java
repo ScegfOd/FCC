@@ -59,7 +59,8 @@ public class OrderController {
 	public static void createOrder(Context context) {
 		Order order = context.bodyAsClass(Order.class);
 		Integer result = orderService.createOrder(order);
-		context.result("Order placed successfully. Your order number is " + result);
+		System.out.println("cat");
+		context.result("" + result);
 	}
 	
 	// update an existing order

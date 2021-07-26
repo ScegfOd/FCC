@@ -46,16 +46,19 @@ function handleClick(event) {
 function addButtonHandler(event){
     const thisCost = parseFloat(event.target.parentElement.previousElementSibling.previousElementSibling.firstElementChild.innerHTML.split("$")[0])
     const thisItemName = event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerHTML
-    
-    event.target.parentElement.nextElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.nextElementSibling.firstElementChild.innerHTML) + 1
+    let thisItemCount = event.target.parentElement.nextElementSibling.firstElementChild.innerHTML
 
-    cost[cartItemNumber] = thisCost.toFixed(2)
-    items[cartItemNumber] = thisItemName
-    cartItemNumber++
+    if(thisItemCount < 99){
+        event.target.parentElement.nextElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.nextElementSibling.firstElementChild.innerHTML) + 1
 
-    localStorage.setItem("cart", items)
-    localStorage.setItem("cartItemNumber", cartItemNumber)
-    localStorage.setItem("itemCost", cost)
+        cost[cartItemNumber] = thisCost.toFixed(2)
+        items[cartItemNumber] = thisItemName
+        cartItemNumber++
+
+        localStorage.setItem("cart", items)
+        localStorage.setItem("cartItemNumber", cartItemNumber)
+        localStorage.setItem("itemCost", cost)
+    }
 }
 
 function subtractButtonHandler(event){
@@ -65,9 +68,7 @@ function subtractButtonHandler(event){
     let count = 0
     for(item of items){
         if(item === thisItemName){
-            console.log(items)
             items.splice(count, 1)
-            console.log(items)
             cost.splice(count, 1)
             cartItemNumber -= 1
             event.target.parentElement.previousElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.previousElementSibling.firstElementChild.innerHTML) - 1

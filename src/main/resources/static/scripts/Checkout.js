@@ -7,8 +7,11 @@ window.addEventListener("DOMContentLoaded", (event) => {
         itemCostList = localStorage.getItem("itemCost").split(",")
 
         loadTable(itemList, itemCostList)
-        document.getElementById("myform").style = "display:contents"
+        document.getElementById("itemTable").style = "display:block"
+        document.getElementById("myform").style = "display:flex"
         document.getElementById("noItems").style = "display:none"
+        document.getElementById("cartTitle").style = "display:block"
+        document.getElementById("billingTitle").style = "display:block"
     }
 })
 
@@ -17,41 +20,23 @@ if (document.addEventListener) {
 }
 
 function handleClick(event) {
-    if (event.target.name === "Remove") {
+    console.log(event.target.id)
+    console.log(event.target.innerHTML)
+    console.log(event.target.name)
+    console.log(event)
+    console.log(event.target)
+
+    if (event.target.id === "Remove") {
         removeButtonHandler(event)
     }
     else if(event.target.name === "checkout"){
-        checkoutButtonHandler(event)
+        checkoutButtonHandler()
     }
 
 }
 
 function loadTable(itemList, itemCostList){
     const itemTable = document.getElementById("itemTable")
-
-    const headerRow = document.createElement("tr")
-
-    const itemAmountColumn = document.createElement("th")
-    const amountColumnNode = document.createTextNode("Amount")
-    itemAmountColumn.appendChild(amountColumnNode)
-
-    const itemNameColumn = document.createElement("th")
-    const nameColumnNode = document.createTextNode("Name")
-    itemNameColumn.appendChild(nameColumnNode)
-
-    const itemCostColumn = document.createElement("th")
-    const costColumnNode = document.createTextNode("Cost")
-    itemCostColumn.appendChild(costColumnNode)
-
-    const removeButtonColumn = document.createElement("th")
-    const removeButtonColumnNode = document.createTextNode("Remove Buttons")
-    removeButtonColumn.appendChild(removeButtonColumnNode)
-
-    itemTable.appendChild(headerRow)
-    headerRow.appendChild(itemAmountColumn)
-    headerRow.appendChild(itemNameColumn)
-    headerRow.appendChild(itemCostColumn)
-    headerRow.appendChild(removeButtonColumn)
 
     let individualItemCostTotal = {}
     let individualItemAmount = {}
@@ -113,17 +98,24 @@ function loadTable(itemList, itemCostList){
 
         const itemName = document.createElement("td")
         const nameNode = document.createTextNode("Total");
+        itemName.style = "padding-top: 20px"
         itemName.appendChild(nameNode)
 
         const itemCost = document.createElement("td")
         const costNode = document.createTextNode(itemTotal.toFixed(2));
         itemCost.id = "total"
+        itemCost.style = "padding-top: 20px"
         itemCost.appendChild(costNode)
+
+        const removeButton = document.createElement("td")
+        const removeButtonNode = document.createTextNode("");
+        removeButton.appendChild(removeButtonNode)
 
         itemTable.appendChild(itemRow)
         itemRow.appendChild(itemAmount)
         itemRow.appendChild(itemName)
         itemRow.appendChild(itemCost)
+        itemRow.appendChild(removeButton)
 }
 
 function removeButtonHandler(event){
@@ -154,11 +146,10 @@ function removeButtonHandler(event){
     document.getElementById("total").innerHTML = total.toFixed(2)
 }
 
-function checkoutButtonHandler(event){
-    const form = document.getElementById("myform")
-    let cNumber = form.elements[0].value
-    const cvv = form.elements[1].value
-    const date = form.elements[2].value
+function checkoutButtonHandler(){
+    let cNumber = document.getElementById("card").value
+    const cvv = document.getElementById("cvv").value
+    const date = document.getElementById("date").value
 
     cNumberLength = cNumber.toString().length
 

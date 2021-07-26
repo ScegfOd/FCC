@@ -1,3 +1,5 @@
+document.getElementById("idinput").value = localStorage.getItem("orderId")
+
 function get_order_status(){
 	let url = "http://localhost:9000/orders/id/" + document.getElementById("idinput").value
 	fetch(url, {

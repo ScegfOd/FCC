@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
 *{
     padding: 0;
     margin: 0;
@@ -6,7 +8,8 @@
 
 body{
     min-height: 100vh;
-    font-family: sans-serif;
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(#91450a 50%, #770000 100%);
 }
 
 .menuContainer .menu{
@@ -14,7 +17,7 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: black;
 }
 
 .menuContainer .menu li{
@@ -23,33 +26,46 @@ body{
 
 .menuContainer .menu li a{
     display: block;
-    color: white;
+    color: #E8E8E8;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
+.menuContainer .menu li img{
+    display: block;
+    margin-left: 320px;
+    border-radius: 25px;
+}
+
 .menuContainer .menu li a:hover{
-    background-color: #111;
+    background-color: rgb(40,40,40)
 }
 
 .allItemContainer{
     display: flex;
     justify-content:center;
     align-items: center;
+    flex-wrap:wrap;
 }
 
 .itemSetContainer{
     position: relative;
-    top: 100px;
+    margin-top: 37px;
+    margin-bottom: 37px;
+    margin-right: 200px;
+    margin-left: 200px;
 }
 
 .itemSetContainer .itemSetName{
+    font-size: 30px;
     display: flex;
     justify-content:center;
     align-items: center;
     padding-bottom: 10px;
-    border-bottom: 2px solid black;
+    border-bottom: 7px solid #ff8c00;
+    color:#E8E8E8;
+    text-shadow: 15px 15px 25px rgba(0,0,0,0.5);
 }
 
 .itemSetContainer .menuItem{
@@ -59,15 +75,17 @@ body{
     display: flex;
     flex-wrap:wrap;
     border-radius: 25px;
-    background: #73AD21;
+    background: black;
+    box-shadow:15px 15px 25px rgba(0,0,0,0.7);
 }
 
 .itemSetContainer .menuItem .box{
     position: relative;
     width: 400px;
-    height: 270px;
-    bottom: 50px;
+    height: 265px;
     overflow: hidden;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
     transition: 0.5s;
 }
 
@@ -91,12 +109,14 @@ body{
 .itemSetContainer .menuItem .productName{
     position: absolute;
     left: 410px;
+    color:#E8E8E8;
 }
 
 .itemSetContainer .menuItem .priceBx{
     position: absolute;
     top: 36px;
     left: 410px;
+    color:#E8E8E8;
 }
 
 .itemSetContainer .menuItem .descriptionBx{
@@ -105,22 +125,103 @@ body{
     left: 410px;
     width: 340px;
     overflow: wrap;
+    color: #E8E8E8;
 }
 
 .itemSetContainer .menuItem .count{
     position: absolute;
-    top: 240px;
-    left: 610px;
+    top: 241px;
+    left: 690px;
+    color: #E8E8E8;
 }
 
 .itemSetContainer .menuItem .addCart{
     position: absolute;
     top: 240px;
-    left: 540px;
+    left: 670px;
 }
 
 .itemSetContainer .menuItem .subtractCart{
     position: absolute;
     top: 240px;
-    left: 630px;
+    left: 717px;
+}
+
+.allItemContainer .drinks{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-wrap:wrap;
+    width: 1000px;
+}
+
+.allItemContainer .drinks .itemSetName{
+    margin-left:200px;
+    margin-right: 200px;
+}
+
+.allItemContainer .drinks .menuItem{
+    width:400px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.allItemContainer .drinks .productName{
+    position: absolute;
+    left: 280px;
+    color:#E8E8E8;
+}
+
+.allItemContainer .drinks .priceBx{
+    position: absolute;
+    top: 36px;
+    left: 280px;
+    color:#E8E8E8;
+}
+
+.allItemContainer .drinks .count{
+    position: absolute;
+    top: 241px;
+    left: 320px;
+    color: #E8E8E8;
+}
+
+.allItemContainer .drinks .addCart{
+    position: absolute;
+    top: 240px;
+    left: 300px;
+}
+
+.allItemContainer .drinks .subtractCart{
+    position: absolute;
+    top: 240px;
+    left: 347px;
+}
+
+.allItemContainer .drinks .menuItem .drpepper{
+    position: absolute;
+    top: 85px;
+    left: 280px;
+    color:#E8E8E8;
+}
+
+.allItemContainer .drinks .menuItem .myellow{
+    position: absolute;
+    top: 85px;
+    left: 280px;
+    color:#E8E8E8;
+}
+
+.allItemContainer .drinks .menuItem .dietc{
+    position: absolute;
+    top: 85px;
+    left: 280px;
+    color:#E8E8E8;
+}
+
+.allItemContainer .drinks .menuItem .yfd{
+    position: absolute;
+    top: 140px;
+    left: 280px;
+    color:#E8E8E8;
 }
