@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<title>Chicken Fly: Order Status</title>
 </head>
-<body>
+<body onload="timedRefresh(10000); get_order_status();">
 	<main>
 		<div class="containerContainer">
 			<div class="menuContainer">
@@ -22,8 +22,7 @@
 			<div class="statusContainer">
 				<header><h1>Order Status</h1></header>
 				<div class="middle">
-					<div><input name="idinput" id="idinput" type="number" readonly/>
-					<button onclick="get_order_status()">Submit</button></div>
+					<input name="idinput" id="idinput" type="number" readonly/>
 				</div>
 				<p id="msg"></p>
 

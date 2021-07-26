@@ -50,3 +50,7 @@ function reset_img(){
 	document.getElementById("statusimg").src = "images/status.jpg"
 	document.getElementById("idinput").value = ""
 }
+
+function timedRefresh(timeoutPeriod) {
+    setTimeout("location.reload(true);",timeoutPeriod);
+}
