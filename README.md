@@ -29,7 +29,7 @@ The official "Chicken Fly" ordering website, for the best fried chicken you ever
 - TestNG
 
 # Roles
-- Manny Hinn: Scrum Master (week 1), Documentation, PostgreSQL, Java Backend (portion), Employee Portal Frontend (majority) and all CSS (styling cohesion)
-- Marcus Kee: Java Backend (majority), Employee Portal Frontend (portion), Mockito and TestNG
-- Jonathan Combs: Scrum Master (week 2), Documentation, Customer Frontend (about us, contact us, order status), Cucumber and Selenium
-- Christian Hall: Customer Frontend (homepage, food menu, order)
+- Manny Hinn: Scrum Master (week 1), Documentation, PostgreSQL, Java Backend, Employee Portal Frontend and all CSS (styling cohesion)
+- Marcus Kee: Java Backend, Employee Portal Frontend, Mockito and TestNG
+- Jonathan Combs: Scrum Master (week 2), Documentation, Customer Frontend, Cucumber and Selenium
+- Christian Hall: Customer Frontend
