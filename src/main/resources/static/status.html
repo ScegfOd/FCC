@@ -21,9 +21,11 @@
 			</div>
 			<div class="statusContainer">
 				<header><h1>Order Status</h1></header>
-				<div><input name="idinput" id="idinput" type="number" readonly/>
+				<div class="middle">
+					<div><input name="idinput" id="idinput" type="number" readonly/>
+					<button onclick="get_order_status()">Submit</button></div>
+				</div>
 				<p id="msg"></p>
-				<button onclick="get_order_status()">Submit</button></div>
 
 				<br>
 				<img id="statusimg" src="images/status.jpg"/>

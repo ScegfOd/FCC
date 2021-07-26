@@ -46,35 +46,69 @@ function handleClick(event) {
 function addButtonHandler(event){
     const thisCost = parseFloat(event.target.parentElement.previousElementSibling.previousElementSibling.firstElementChild.innerHTML.split("$")[0])
     const thisItemName = event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerHTML
+    const thisItemId = event.target.parentElement.previousElementSibling.previousElementSibling.firstElementChild.id
     let thisItemCount = event.target.parentElement.nextElementSibling.firstElementChild.innerHTML
 
-    if(thisItemCount < 99){
-        event.target.parentElement.nextElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.nextElementSibling.firstElementChild.innerHTML) + 1
+    if(thisItemId === "drink"){
+        if(thisItemCount < 99){
+            event.target.parentElement.nextElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.nextElementSibling.firstElementChild.innerHTML) + 1
 
-        cost[cartItemNumber] = thisCost.toFixed(2)
-        items[cartItemNumber] = thisItemName
-        cartItemNumber++
+            cost[cartItemNumber] = parseFloat(event.target.parentElement.previousElementSibling.firstElementChild.innerHTML.split("$")[0]).toFixed(2)
 
-        localStorage.setItem("cart", items)
-        localStorage.setItem("cartItemNumber", cartItemNumber)
-        localStorage.setItem("itemCost", cost)
+            items[cartItemNumber] = event.target.parentElement.previousElementSibling.previousElementSibling.firstElementChild.innerHTML
+
+            cartItemNumber++
+
+            localStorage.setItem("cart", items)
+            localStorage.setItem("cartItemNumber", cartItemNumber)
+            localStorage.setItem("itemCost", cost)
+        }
+    }
+    else{
+        if(thisItemCount < 99){
+            event.target.parentElement.nextElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.nextElementSibling.firstElementChild.innerHTML) + 1
+
+            cost[cartItemNumber] = thisCost.toFixed(2)
+            items[cartItemNumber] = thisItemName
+            cartItemNumber++
+
+            localStorage.setItem("cart", items)
+            localStorage.setItem("cartItemNumber", cartItemNumber)
+            localStorage.setItem("itemCost", cost)
+        }
     }
 }
 
 function subtractButtonHandler(event){
-    const thisCost = parseFloat(event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerHTML.split("$")[0])
     const thisItemName = event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerHTML
+    const thisItemId = event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.id
 
-    let count = 0
-    for(item of items){
-        if(item === thisItemName){
-            items.splice(count, 1)
-            cost.splice(count, 1)
-            cartItemNumber -= 1
-            event.target.parentElement.previousElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.previousElementSibling.firstElementChild.innerHTML) - 1
-            break
+    if(thisItemId === "drink"){
+        let count = 0
+        for(item of items){
+            if(item === event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.firstElementChild.innerHTML
+                ){
+                items.splice(count, 1)
+                cost.splice(count, 1)
+                cartItemNumber -= 1
+                event.target.parentElement.previousElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.previousElementSibling.firstElementChild.innerHTML) - 1
+                break
+            }
+            count++
         }
-        count++
+    }
+    else{
+        let count = 0
+        for(item of items){
+            if(item === thisItemName){
+                items.splice(count, 1)
+                cost.splice(count, 1)
+                cartItemNumber -= 1
+                event.target.parentElement.previousElementSibling.firstElementChild.innerHTML = parseInt(event.target.parentElement.previousElementSibling.firstElementChild.innerHTML) - 1
+                break
+            }
+            count++
+        }
     }
     
     localStorage.setItem("cart", items)

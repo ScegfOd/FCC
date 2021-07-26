@@ -26,6 +26,11 @@ body {
   flex-wrap:wrap;
 }
 
+.middle{
+  margin-left:300px;
+  margin-right: 300px;
+}
+
 h1 {
   font-size: 37px;
   font-weight: 650;

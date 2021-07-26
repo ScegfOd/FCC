@@ -26,7 +26,7 @@ function handleClick(event) {
     console.log(event)
     console.log(event.target)
 
-    if (event.target.id === "Remove") {
+    if (event.target.name === "Remove") {
         removeButtonHandler(event)
     }
     else if(event.target.name === "checkout"){
@@ -80,6 +80,7 @@ function loadTable(itemList, itemCostList){
         const removeButtonNode = document.createElement("input");
         removeButtonNode.type = "button"
         removeButtonNode.name = "Remove"
+        removeButtonNode.id = "Remove"
         removeButtonNode.value = "Remove"
         removeButton.appendChild(removeButtonNode)
 
@@ -90,35 +91,88 @@ function loadTable(itemList, itemCostList){
         itemRow.appendChild(removeButton)
     }
 
-        const itemRow = document.createElement("tr")
+    const itemRow = document.createElement("tr")
 
-        const itemAmount = document.createElement("td")
-        const amountNode = document.createTextNode("");
-        itemAmount.appendChild(amountNode)
+    const itemAmount = document.createElement("td")
+    const amountNode = document.createTextNode("");
+    itemAmount.appendChild(amountNode)
 
-        const itemName = document.createElement("td")
-        const nameNode = document.createTextNode("Total");
-        itemName.style = "padding-top: 20px"
-        itemName.appendChild(nameNode)
+    const itemName = document.createElement("td")
+    const nameNode = document.createTextNode("Subtotal");
+    itemName.style = "padding-top: 20px"
+    itemName.appendChild(nameNode)
 
-        const itemCost = document.createElement("td")
-        const costNode = document.createTextNode(itemTotal.toFixed(2));
-        itemCost.id = "total"
-        itemCost.style = "padding-top: 20px"
-        itemCost.appendChild(costNode)
+    const itemCost = document.createElement("td")
+    const costNode = document.createTextNode(itemTotal.toFixed(2));
+    itemCost.id = "subtotal"
+    itemCost.style = "padding-top: 20px"
+    itemCost.appendChild(costNode)
 
-        const removeButton = document.createElement("td")
-        const removeButtonNode = document.createTextNode("");
-        removeButton.appendChild(removeButtonNode)
+    const removeButton = document.createElement("td")
+    const removeButtonNode = document.createTextNode("");
+    removeButton.appendChild(removeButtonNode)
 
-        itemTable.appendChild(itemRow)
-        itemRow.appendChild(itemAmount)
-        itemRow.appendChild(itemName)
-        itemRow.appendChild(itemCost)
-        itemRow.appendChild(removeButton)
+    itemTable.appendChild(itemRow)
+    itemRow.appendChild(itemAmount)
+    itemRow.appendChild(itemName)
+    itemRow.appendChild(itemCost)
+    itemRow.appendChild(removeButton)
+
+
+    const itemRow1 = document.createElement("tr")
+
+    const itemAmount1 = document.createElement("td")
+    const amountNode1 = document.createTextNode("");
+    itemAmount1.appendChild(amountNode1)
+
+    const itemName1 = document.createElement("td")
+    const nameNode1 = document.createTextNode("Tax");
+    itemName1.appendChild(nameNode1)
+
+    const itemCost1 = document.createElement("td")
+    const costNode1 = document.createTextNode((itemTotal * .12).toFixed(2));
+    itemCost1.id = "tax"
+    itemCost1.appendChild(costNode1)
+
+    const removeButton1 = document.createElement("td")
+    const removeButtonNode1 = document.createTextNode("");
+    removeButton1.appendChild(removeButtonNode1)
+
+    itemTable.appendChild(itemRow1)
+    itemRow1.appendChild(itemAmount1)
+    itemRow1.appendChild(itemName1)
+    itemRow1.appendChild(itemCost1)
+    itemRow1.appendChild(removeButton1)
+
+
+    const itemRow2 = document.createElement("tr")
+
+    const itemAmount2 = document.createElement("td")
+    const amountNode2 = document.createTextNode("");
+    itemAmount2.appendChild(amountNode2)
+
+    const itemName2 = document.createElement("td")
+    const nameNode2 = document.createTextNode("Total");
+    itemName2.appendChild(nameNode2)
+
+    const itemCost2 = document.createElement("td")
+    const costNode2 = document.createTextNode(((itemTotal*.12)+itemTotal).toFixed(2));
+    itemCost2.id = "total"
+    itemCost2.appendChild(costNode2)
+
+    const removeButton2 = document.createElement("td")
+    const removeButtonNode2 = document.createTextNode("");
+    removeButton2.appendChild(removeButtonNode2)
+
+    itemTable.appendChild(itemRow2)
+    itemRow2.appendChild(itemAmount2)
+    itemRow2.appendChild(itemName2)
+    itemRow2.appendChild(itemCost2)
+    itemRow2.appendChild(removeButton2)
 }
 
 function removeButtonHandler(event){
+    console.log("something")
     event.target.parentElement.parentElement.remove()
     element = event.target.parentElement.previousElementSibling.previousElementSibling.innerHTML
     localStorage.removeItem("cart")
@@ -143,7 +197,9 @@ function removeButtonHandler(event){
         total += parseFloat(itemCostList[count])
         count++
     }
-    document.getElementById("total").innerHTML = total.toFixed(2)
+    document.getElementById("subtotal").innerHTML = total.toFixed(2)
+    document.getElementById("tax").innerHTML = (total * .12).toFixed(2)
+    document.getElementById("total").innerHTML = ((total*.12)+total).toFixed(2)
 }
 
 function checkoutButtonHandler(){
