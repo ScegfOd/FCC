@@ -1,11 +1,9 @@
 package cucumber;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.FluentWait;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -23,10 +21,7 @@ public class EmployeeLoginGlue {
 		System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
 		driver = new FirefoxDriver();
 
-		new FluentWait<>(driver)
-		.withTimeout(Duration.ofSeconds(5))
-		.pollingEvery(Duration.ofMillis(500))
-		.ignoring(ElementNotInteractableException.class);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 
 		EL = new EmployeeLogin(driver);
 	}
