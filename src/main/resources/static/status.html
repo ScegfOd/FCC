@@ -9,15 +9,26 @@
 </head>
 <body>
 	<main>
-		<header><h1>Order Status</h1></header>
-	<!--	<label name="idinput">order ID:</label> -->
-		<div><input name="idinput" id="idinput" type="number" placeholder="ENTER ORDER ID" min="1"/>
-		<p id="msg"></p>
-		<button onclick="get_order_status()">Submit</button></div>
-		<!--
-		<button onclick="reset_img()">Clear</button> -->
-		<br>
-		<img id="statusimg" src="images/status.jpg"/>
+		<div class="containerContainer">
+			<div class="menuContainer">
+				<ul class="menu">
+					<li><a href="http://localhost:9000/Menu.html">Menu</a></li>
+					<li><a href="http://localhost:9000/about.html">About Us</a></li>
+					<li><a href="http://localhost:9000/contact.html">Contact Us</a></li>
+					<li><img src="images/logo_1.jpg"></li>
+					<li style="float:right"><a href="http://localhost:9000/Checkout.html">Cart</a></li>
+				</ul>
+			</div>
+			<div class="statusContainer">
+				<header><h1>Order Status</h1></header>
+				<div><input name="idinput" id="idinput" type="number" readonly/>
+				<p id="msg"></p>
+				<button onclick="get_order_status()">Submit</button></div>
+
+				<br>
+				<img id="statusimg" src="images/status.jpg"/>
+			</div>
+		</div>
 	</main>
 	<footer></footer>
 </body>

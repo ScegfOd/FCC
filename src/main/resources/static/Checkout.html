@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="shortcut icon" type="image/jpg" href="../styles/hen.svg" />
+    <link rel="stylesheet" href="../styles/Checkout.css"/>
+</head>
+<body>
+    <div class="containerContainer">
+        <div class="menuContainer">
+            <ul class="menu">
+                <li><a href="http://localhost:9000/Menu.html">Menu</a></li>
+                <li><a href="http://localhost:9000/about.html">About Us</a></li>
+                <li><a href="http://localhost:9000/contact.html">Contact Us</a></li>
+                <li><img src="images/logo_1.jpg"></li>
+                <li style="float:right"><a href="http://localhost:9000/Checkout.html">Cart</a></li>
+            </ul>
+        </div>
+        <div class="pageContainer">
+            <div class="cart">
+                <div class="titles">
+                    <h1 id="cartTitle" style="display:none">Cart</h1>
+                </div>
+                <table id="itemTable" style="display: none;">
+                    <th>Amount</th>
+                    <th>Item Name</th>
+                    <th>Cost</th>
+                    <th>Action</th>
+                </table>
+            </div>
+            <div class="why">
+                <div class="titles">
+                    <h1 id="billingTitle" style="display:none">Billing</h1>
+                </div>
+                <div id="myform" style="display:none">
+                    <div class="formContents">
+                        <label for="card">card: </label>
+                        <input id="card" name="card" type="number" required>
+                    </div>
+                    <div class="formContents">
+                        <label for="cvv">cvv: </label>
+                        <input id="cvv" name="cvv" type="number" required>
+                    </div>
+                    <div class="formContents">
+                        <label for="date">Exp. Date: </label>
+                        <input type="month" id="date" name="date" required>
+                    </div>
+                        <div class="formContents">
+                        <input type="button" id="checkout" name="checkout" value="Checkout">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h1 id="noItems">No Items in cart</h1>
+<script src="scripts/Checkout.js"></script>
+</body>
+</html>
