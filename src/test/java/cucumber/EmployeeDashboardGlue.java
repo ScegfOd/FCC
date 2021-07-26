@@ -35,6 +35,7 @@ public class EmployeeDashboardGlue {
 	public void teardown() {
 		driver.quit();
 	}
+
 	@Given("That I have logged in as an employee")
 	public void that_i_have_logged_in_as_an_employee() {
 		driver.get("http://localhost:9000/fcc.html");
