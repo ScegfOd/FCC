@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Menu {
-	private String cancelXPath = "//*[@value='add to cart']";
+	private String cancelXPath = "//*[@value='+']";
 	private String hrefXPath = "//*[@href='http://localhost:9000/Checkout.html']";
 	private WebDriver driver;
 
